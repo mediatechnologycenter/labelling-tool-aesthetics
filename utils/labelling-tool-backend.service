@@ -1,0 +1,15 @@
+[Unit]
+Description=Emotion and stance labelling tool
+After=network.target
+[Service]
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=labelling-tool-backend
+User=root
+Type=simple
+Restart=always
+RestartSec=1
+WorkingDirectory=/local/home/camluca/labelling-tool
+ExecStart=/usr/bin/node /local/home/camluca/labelling-tool/app.js
+[Install]
+WantedBy=multi-user.target
